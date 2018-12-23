@@ -1,0 +1,62 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.2.71'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+
+    supportVersion = "1.0.0-beta01"
+    constraintlayoutVersion = "1.1.2"
+    multiDexVersion = "2.0.0"
+    archVersion = "2.0.0-alpha1"
+
+    bootstrapVersion = "0.1.1.SNAPSHOT"
+
+    lifeCycleVersion = '1.0.0'
+    rxJava2Version = '2.1.16'
+    rxAndroidVersion = '2.0.1'
+
+    supportDependencies = [
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            appCompat         : "androidx.appcompat:appcompat:$supportVersion",
+            recyclerView      : "androidx.recyclerview:recyclerview:$supportVersion",
+            design            : "com.google.android.material:material:$supportVersion",
+            lifecycleExtension: "androidx.lifecycle:lifecycle-extensions:$archVersion",
+            constraintlayout  : "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion",
+            multyDex          : "androidx.multidex:multidex:$multiDexVersion",
+    ]
+
+    bootstrapDependencies = [
+            core      : "com.cleveroad.bootstrap:kotlin-core:$bootstrapVersion",
+            validators: "com.cleveroad.bootstrap:kotlin-validators:$bootstrapVersion",
+            rxBus     : "com.cleveroad.bootstrap:kotlin-rx-bus:$bootstrapVersion",
+            ext       : "com.cleveroad.bootstrap:kotlin-ext:$bootstrapVersion"
+    ]
+
+    rxJavaDependencies = [
+            rxJava2: "io.reactivex.rxjava2:rxjava:$rxJava2Version"
+    ]
+}
